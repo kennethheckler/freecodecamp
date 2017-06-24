@@ -1,0 +1,90 @@
+<!--
+  Author: W3layouts
+  Author URL: http://w3layouts.com
+  License: Creative Commons Attribution 3.0 Unported
+  License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>freeCodeCamp Local Weather Challenge</title>
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+
+    <!-- Web-Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:100,200' rel='stylesheet' type='text/css'>
+  </head>
+  <body onload="startTime()">
+    <!-- Heading -->
+    <h1>freeCodeCamp Local Weather Challenge</h1>
+
+    <!-- Container -->
+    <div class="container">
+
+      <!-- City -->
+      <div class="city">
+        <div class="title">
+          <h2 id="city"></h2>
+          <h3 id="region"></h3>
+        </div>
+        <div class="date-time">
+          <div class="dmy">
+            <div id="txt"></div>
+            <div class="date" id="date">
+            </div>
+          </div>
+          <div class="temperature">
+            <p id="temp"></p>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      <!-- //City -->
+
+
+
+      <!-- Forecast -->
+      <div class="forecast">
+        <div class="forecast-icon">
+          <img id="condition-img" width="128" height="128" src="">
+        </div>
+        <div class="today-weather">
+          <h3 id="condition"></h3>
+          <ul id="forecast-ul">
+          </ul>
+        </div>
+      </div>
+      <!-- //Forecast -->
+      <div class="clear"></div>
+
+    </div>
+    <!-- //Container -->
+
+
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="copyright">
+        <p> &copy; 2016 New York Weather Widget. All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+        <p><a href="https://icons8.com">Icon pack by Icons8</a></p>
+      </div>
+    </div>
+
+    <!-- Custom-JavaScript-Files -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="./js/jquery.min.js"><\/script>')</script>
+    <script src="./js/weather.js"></script>
+  </body>
+</html>

@@ -1,6 +1,7 @@
 $( document ).ready(function(e) {
   $.ajax({
     url: 'https://freegeoip.net/json',
+    dataType: "jsonp",
     success: function(data) {
       var city = data.city;
       var region = data.region_name;

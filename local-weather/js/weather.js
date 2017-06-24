@@ -19,8 +19,7 @@ $( document ).ready(function(e) {
           $('#condition').text(condition.text);
 
           var today = new Date();
-          console.log(today);
-          var am = ((condition.date.indexOf("AM") >= 0) && (today.getHours() >= astronomy.sunrise.substring(0,1)));
+          var am = ( (today.getHours() >= astronomy.sunrise.substring(0,1)) && (today.getHours() < (astronomy.sunset.substring(0,1) + 12)) );
 
           var background = "";
           switch (today.getMonth()) {

@@ -1,11 +1,9 @@
 $( document ).ready(function(e) {
-//$('#get-another-quote-button').on('click', function(e) {
-  //e.preventDefault();
   $.ajax({
-    url: 'http://ip-api.com/json',
+    url: 'https://freegeoip.net/json',
     success: function(data) {
       var city = data.city;
-      var region = data.regionName;
+      var region = data.region_name;
       $('#city').text(city);
       $('#region').text(region);
 

@@ -5,6 +5,7 @@ $( document ).ready(function(e) {
     success: function(data) {
       var city = data.city;
       var region = data.region_name;
+      var countryCode = data.country_code;
       $('#city').text(city);
       $('#region').text(region);
 
@@ -12,10 +13,11 @@ $( document ).ready(function(e) {
       $.ajax( {
         url: 'https://query.yahooapis.com/v1/public/yql?q=' + yql + '&format=json',
         success: function(data) {
-          var units = data.query.results.channel.units;
+          var temperatureUnits = data.query.results.channel.units.temperature;
           var astronomy = data.query.results.channel.astronomy;
           var condition = data.query.results.channel.item.condition;
-          $('#temp').html(condition.temp + '°' + '<span id="temp-units">' + units.temperature + '</span>');
+          var temperature = (temperatureUnits === 'F' ? condition.temp : toCelsius(condition.temp));
+          $('#temp').html(temperature + '°' + '<span id="temp-units">' + temperatureUnits + '</span>');
           $('#condition').text(condition.text);
 
           var today = new Date();
@@ -85,6 +87,28 @@ $( document ).ready(function(e) {
     cache: false
   });
 });
+
+
+$("#temp").click(function() {
+  var text = $("#temp").text();
+  var temp = text.substring(0, text.indexOf('°'));
+  var unit = text.substring(text.indexOf('°') + 1);
+  if (unit === 'F') {
+    $('#temp').html(toCelsius(temp) + '°' + '<span id="temp-units">C</span>');
+    $('#forecast-ul').html($('#forecast-ul').html().replace(/\d{1,3}/g, toCelsius));
+  } else {
+    $('#temp').html(toFahrenheit(temp) + '°' + '<span id="temp-units">F</span>');
+    $('#forecast-ul').html($('#forecast-ul').html().replace(/\d{1,3}/g, toFahrenheit));
+  }
+});
+
+function toCelsius(f) {
+    return Math.round((f - 32) / 1.8);
+};
+
+function toFahrenheit(c) {
+    return Math.round((c * 1.8) + 32);
+};
 
 function startTime() {
   var today = new Date();

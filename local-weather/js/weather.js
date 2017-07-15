@@ -21,7 +21,9 @@ $( document ).ready(function(e) {
           $('#condition').text(condition.text);
 
           var today = new Date();
-          var am = ( (today.getHours() >= astronomy.sunrise.substring(0,1)) && (today.getHours() < (astronomy.sunset.substring(0,1) + 12)) );
+          var sunrise = Number(astronomy.sunrise.substring(0,1));
+          var sunset = Number(astronomy.sunset.substring(0,1)) + 12;
+          var am = ( (today.getHours() >= sunrise) && (today.getHours() < sunset) );
 
           var background = "";
           switch (today.getMonth()) {
